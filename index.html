@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Ouvrir dans Obsidian</title></head>
+<body style="font-family:system-ui,sans-serif;max-width:560px;margin:3rem auto;padding:0 1rem;line-height:1.5">
+<p id="m">Ouverture de la note dans Obsidian…</p>
+<p><a id="l" style="display:inline-block;padding:.6rem 1rem;border-radius:6px;background:#0d5786;color:#fff;text-decoration:none">Ouvrir dans Obsidian</a></p>
+<p style="color:#666;font-size:.9rem">Si rien ne se passe, touche le bouton. Redirection utilisée par La Vigie ; cette page ne stocke rien.</p>
+<script>
+var q=new URLSearchParams(location.search);
+var mob=/Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);
+var vault=q.get("vault")||(mob?(q.get("mvault")||"OneSyncFiles"):(q.get("pvault")||"Coffre fort"));
+var file=q.get("file")||"";
+var u="obsidian://open?vault="+encodeURIComponent(vault)+(file?"&file="+encodeURIComponent(file):"");
+document.getElementById("l").href=u;
+if(file){document.getElementById("m").textContent="Ouverture de « "+file+" » dans Obsidian…";}
+location.href=u;
+</script>
+</body></html>
